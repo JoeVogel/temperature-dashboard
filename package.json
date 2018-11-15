@@ -18,6 +18,7 @@
   "homepage": "https://github.com/JoeVogel/temperature-dashboard#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "bootstrap-combobox": "^1.0.2",
     "dotenv": "^6.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",

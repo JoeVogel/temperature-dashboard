@@ -41,13 +41,22 @@ body {
   }
 }
 
-/* ABOUT PAGE */
+/* PAGES */
 
-#about-area {
+.content-area {
   border-radius: 5px;
   background-color: #f5f4ee;
   padding: 5rem;
 }
+
+/* INDEX PAGE */
+
+#search {
+  background-color: rgb(80, 140, 35);
+  color: white;
+}
+
+/* ABOUT PAGE */
 
 #about-title {
   text-align: center;

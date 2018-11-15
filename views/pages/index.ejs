@@ -1,5 +1,29 @@
 <%- contentFor('body') %>
 
-<div class='container'>
+<div class='content-area'>
+
+  <form>
+    <div class="form-group row">
+      <label for="device" class="col-12 col-md-3 col-form-label">Dispositivo</label>
+      <select class="form-control col-12 col-md-6 ml-3" id='device'>
+        <option value="">Selecione</option>
+        <option value="">Baú</option>
+        <option value="">Container</option>
+      </select>
+    </div>
+    <div class="form-group row">
+      <label for="date-from" class="col-12 col-md-3 col-form-label">Data Inicial</label>
+      <div class="col-12 col-md-4">
+        <input class="form-control" type="date" id="date-from">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="date-to" class="col-sm-12 col-md-3 col-form-label">Data Final</label>
+      <div class="col-12 col-md-4">
+        <input class="form-control" type="date" id="date-to">
+      </div>
+    </div>
+    <button type="submit" id='search' class="btn mb-2">Buscar</button>
+  </form>
 
 </div>
