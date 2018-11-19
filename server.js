@@ -5,26 +5,20 @@ require('dotenv').config({
   silent: true
 });
 
+// db instance connection
+require("./config/db");
+
 const app = express();
 
 const port = process.env.PORT || 3000;
-const connString = process.env.MONGODB_CONNECTION_STRING || '<connection_string>';
-
-mongoose = require('mongoose');
-Measure = require('./models/measureModel');
-
-mongoose.Promise = global.Promise;
-mongoose.connect(connString, {
-  useNewUrlParser: true
-});
 
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'))
-// app.use(bodyParser.json());
 
 let measureRoutes = require('./routes/measureRoutes');
 let indexRoutes = require('./routes/indexRoutes');
@@ -34,17 +28,6 @@ measureRoutes(app);
 indexRoutes(app);
 aboutRoutes(app);
 
-app.listen(port);
-
-console.log('Dashboard started on port: ' + port);
-
-// var MongoClient = require('mongodb').MongoClient;
-// MongoClient.connect(uri, function (err, client) {
-//   if (err) {
-//     throw err;
-//   }
-
-//   const collection = client.db("scanner").collection("measures");
-//   // perform actions on the collection object
-//   client.close();
-// });
+app.listen(port, () => {
+  console.log('Server started on port: ' + port);
+});

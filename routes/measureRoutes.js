@@ -5,5 +5,6 @@ module.exports = function (app) {
 
   // Measure Routes
   app.route('/measure')
-    .get(measure.show);
+    .get(measure.show)
+    .post(measure.createNewMeasure);
 };

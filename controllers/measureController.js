@@ -2,26 +2,52 @@
 
 var mongoose = require('mongoose');
 
-Measure = mongoose.model('measures');
+var Measure = mongoose.model('measures');
 
 exports.show = function (req, res) {
-  if (req.body.mac != null) {
-    res.json(getMeasures(req.body.mac));
-  }
-}
+  let query = generateQuery(req);
 
-function getMeasures(mac) {
-  let measures = {};
-
-  Measure.find({
-    mac: mac
-  }, (err, result) => {
+  Measure.find(query, (err, result) => {
     if (err) {
-      throw err;
+      console.log(err);
+      res.status(500).send(err);
     }
 
-    measures = result
+    res.status(200).json(result);
   });
 
-  return measures;
+}
+
+exports.createNewMeasure = function (req, res) {
+
+  let newMeasure = new Measure(req.body);
+
+  newMeasure.save((err, task) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send();
+    }
+
+    res.status(201).json(task);
+  });
+}
+
+//With the query parameters from req, build a query string
+function generateQuery(req) {
+
+  let query = {};
+
+  if (req.query.mac != null && req.query.mac != "") {
+    query.mac = req.body.mac
+  }
+
+  if (req.query.startDate != null && req.query.endDate != null && req.query.startDate != "" && req.query.endDate != "") {
+    query.date = {
+      $gte: req.query.startDate,
+      $lte: req.query.endDate
+    };
+  }
+
+  return query;
+
 }
