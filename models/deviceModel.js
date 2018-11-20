@@ -6,7 +6,8 @@ var Schema = mongoose.Schema;
 var deviceSchema = new Schema({
   mac: String,
   description: String,
-  localization: String
+  latitude: String,
+  longitude: String
 });
 
 module.exports = mongoose.model('devices', deviceSchema);

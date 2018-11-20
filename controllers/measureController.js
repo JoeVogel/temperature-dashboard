@@ -19,16 +19,21 @@ exports.show = function (req, res) {
 }
 
 exports.createNewMeasure = function (req, res) {
+  console.log('New measure received from ' + req.body.mac);
 
-  let newMeasure = new Measure(req.body);
+  let obj = req.body;
+  obj.date = new Date();
 
-  newMeasure.save((err, task) => {
+  let newMeasure = new Measure(obj);
+
+  newMeasure.save(function (err, measure) {
     if (err) {
       console.log(err);
-      res.status(500).send();
+      res.send();
     }
 
-    res.status(201).json(task);
+    console.log('Data Saved');
+    res.json(measure);
   });
 }
 
@@ -38,7 +43,7 @@ function generateQuery(req) {
   let query = {};
 
   if (req.query.mac != null && req.query.mac != "") {
-    query.mac = req.body.mac
+    query.mac = req.query.mac
   }
 
   if (req.query.startDate != null && req.query.endDate != null && req.query.startDate != "" && req.query.endDate != "") {
