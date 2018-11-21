@@ -70,8 +70,6 @@ function generateCharts(data) {
     },
 
     xAxis: {
-      // tickInterval: 24 * 3600 * 1000, // daily
-      // tickWidth: 0,
       alignTicks: true,
       gridLineWidth: 1,
       categories: dateData,
@@ -92,7 +90,6 @@ function generateCharts(data) {
           fontSize: '10px'
         }
       }
-      // showFirstLabel: false
     }, { // right y axis
       title: {
         text: "Temperatura (°C)"
