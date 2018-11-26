@@ -23,9 +23,9 @@ exports.createNewMeasure = function (req, res) {
   console.log('New measure received from ' + req.param('mac'));
 
   let obj = {
-    mac: req.param('mac'),
-    temperature: req.param('temperature'),
-    humidity: req.param('humidity'),
+    mac: req.query('mac'),
+    temperature: req.query('temperature'),
+    humidity: req.query('humidity'),
     date: new Date()
   }
 
