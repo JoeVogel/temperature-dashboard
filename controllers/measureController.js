@@ -19,10 +19,15 @@ exports.show = function (req, res) {
 }
 
 exports.createNewMeasure = function (req, res) {
-  console.log('New measure received from ' + req.body.mac);
+  // console.log('New measure received from ' + req.body.mac);
+  console.log('New measure received from ' + req.param('mac'));
 
-  let obj = req.body;
-  obj.date = new Date();
+  let obj = {
+    mac: req.param('mac'),
+    temperature: req.param('temperature'),
+    humidity: req.param('humidity'),
+    date: new Date()
+  }
 
   let newMeasure = new Measure(obj);
 
