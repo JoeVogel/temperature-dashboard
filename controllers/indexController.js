@@ -14,6 +14,8 @@ exports.open = function (req, res) {
       res.status(500);
     }
 
+    console.log(devices);
+
     res.render('pages/index', {
       "devices": devices
     });
