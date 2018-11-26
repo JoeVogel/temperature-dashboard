@@ -19,8 +19,8 @@ exports.show = function (req, res) {
 }
 
 exports.createNewMeasure = function (req, res) {
-  console.log('New measure received from ' + req.body.mac);
-  // console.log('New measure received from ' + req.param('mac'));
+  // console.log('New measure received from ' + req.body.mac);
+  console.log('New measure received from ' + req.query('mac'));
 
   let obj = {
     mac: req.param('mac'),
