@@ -72,7 +72,7 @@ function generateCharts(data) {
     xAxis: {
       alignTicks: true,
       gridLineWidth: 1,
-      categories: dateData,
+      // categories: dateData,
       labels: {
         align: 'left',
         x: 3,
