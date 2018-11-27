@@ -39,7 +39,8 @@ function formatDate(dateString) {
     year = date.getFullYear(),
     hour = date.getHours().toString().padStart(2, '0'),
     minute = date.getMinutes().toString().padStart(2, '0');
-  return day + "/" + month + "/" + year + ' ' + hour + ':' + minute;
+  //return day + "/" + month + "/" + year + ' ' + hour + ':' + minute;
+  return day + "/" + month + ' ' + hour + ':' + minute;
 }
 
 function generateCharts(data) {
@@ -72,7 +73,7 @@ function generateCharts(data) {
     xAxis: {
       alignTicks: true,
       gridLineWidth: 1,
-      // categories: dateData,
+      categories: dateData,
       labels: {
         align: 'left',
         x: 3,
@@ -143,13 +144,6 @@ function generateCharts(data) {
       tooltip: {
         valueSuffix: ' °C'
       }
-    }, {
-      name: 'Data',
-      // lineWidth: 4,
-      // marker: {
-      //   radius: 4
-      // },
-      data: dateData,
     }]
   });
 
