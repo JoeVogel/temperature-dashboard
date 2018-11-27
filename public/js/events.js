@@ -143,6 +143,13 @@ function generateCharts(data) {
       tooltip: {
         valueSuffix: ' °C'
       }
+    }, {
+      name: 'Data',
+      // lineWidth: 4,
+      // marker: {
+      //   radius: 4
+      // },
+      data: dateData,
     }]
   });
 
